@@ -12,7 +12,7 @@ export default function AddMovie() {
     const genres = useSelector(state => state?.genres)
     const dispatch = useDispatch()
 
-    const backgroundFileNames = ['btk.jpg', 'td.jpeg', 'btk.jpg', 'td.jpeg']
+    const backgroundFileNames = ['btk.jpg', 'td.jpeg', 'parasite.png', 'sm.jpg', 'zatoichi.jpeg']
 
     const randomBackground = () => {
         setRandomIndex(Math.floor(Math.random() * ((backgroundFileNames.length) - 0) + 0))
@@ -71,8 +71,10 @@ export default function AddMovie() {
                             <GenreItem key={`g${genre.id}`} genre={genre} setNewMovie={setNewMovie} newMovie={newMovie} />
                         ))}
                     </div>
-                    <button onClick={handleClick}>Cancel</button>
-                    <button type="submit">Submit</button>
+                    <div className="button-container">
+                        <button onClick={handleClick}>Cancel</button>
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
