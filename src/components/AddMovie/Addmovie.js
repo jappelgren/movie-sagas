@@ -19,6 +19,7 @@ export default function AddMovie() {
         dispatch({ type: 'ADD_NEW_MOVIE', payload: newMovie })
         console.log(newMovie)
         setNewMovie({ title: '', poster: '', description: '', genre: [] })
+        history.push('/')
     }
 
     const handleClick = () => {
