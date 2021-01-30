@@ -54,8 +54,8 @@ function* fetchGenres() {
 
 function* addMovie(action) {
     try {
-        console.log(action.payload)
-        axios.post('/api/movie', action.payload)
+        console.log('it was me all along', action.payload)
+        yield axios.post('/api/movie', action.payload)
     } catch (err) {
         console.log(err)
     }
