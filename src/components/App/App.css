@@ -12,9 +12,29 @@ body {
   background-color: #3f4859;
 }
 
-h1 {
+header {
+  background-color: #1a1e24;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem;
+}
+
+.logo {
+  height: 75px;
+  /* padding: 1rem; */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+
+a:hover {
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
   color: #bf2121;
-  font-family: 'Gravitas One', cursive;
 }
 
 .genre-chip,
