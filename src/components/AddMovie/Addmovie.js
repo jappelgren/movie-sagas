@@ -24,7 +24,7 @@ export default function AddMovie() {
         setNewMovie({ ...newMovie, [event.target.name]: event.target.value })
     }
     useEffect(() => {
-        dispatch({ type: 'GET_GENRES' })
+        dispatch({ type: 'FETCH_GENRES' })
     }, [])
 
 
