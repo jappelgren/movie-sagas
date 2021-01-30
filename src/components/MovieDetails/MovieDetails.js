@@ -11,11 +11,13 @@ export default function MovieDetails() {
         <div>
             <h1>{movieObj?.title}</h1>
             <img src={movieObj?.poster} />
-            {movieObj?.array_agg?.map((genre) => (
-                <div key={genre}>
-                    <button>{genre}</button>
-                </div>
-            ))}
+            <div className="genre-container" >
+                {movieObj?.array_agg?.map((genre) => (
+
+                    <div key={genre} className="genre-chip-display">{genre}</div>
+
+                ))}
+            </div>
             <p>{movieObj?.description}</p>
             <button onClick={handleClick}>Back to List</button>
         </div>

@@ -8,7 +8,17 @@
   text-align: center;
 }
 
-.genre-chip {
+body {
+  background-color: #3f4859;
+}
+
+h1 {
+  color: #bf2121;
+  font-family: 'Gravitas One', cursive;
+}
+
+.genre-chip,
+.genre-chip-display {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,20 +27,24 @@
   height: auto;
   padding: 0.25rem 0.5rem;
   margin: 0.5rem;
-  box-shadow: 2px 2px 2px rgb(121, 121, 121);
+  box-shadow: 2px 2px 2px #1a1e24;
+  color: #9fb0bf;
+  background-color: #74858c;
   border-radius: 10px;
 }
 
 .genre-chip:hover {
+  transition: 0.5s ease-in-out;
   cursor: pointer;
+  box-shadow: 0px 0px 2px 2px #bf2121;
 }
 
 .genre-chip-selected {
-  background-color: black;
-  color: white;
+  background-color: #1a1e24;
 }
 
 .genre-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
