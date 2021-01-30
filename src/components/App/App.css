@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #c9c9c9;
+  background-color: #3f4859;
 }
 
 header {
@@ -173,17 +173,19 @@ button:active {
 
 .card-container {
   position: absolute;
-  height: 500px;
+  height: 88vh;
   width: 100vw;
   display: flex;
   overflow: scroll;
+  overflow-y: hidden;
   align-items: center;
+  background-color: #3f4859;
 }
 
 .card {
   display: flex;
-  height: 280px;
-  width: 200px;
+  height: 420px;
+  width: 300px;
   border-radius: 10px;
   box-shadow: -1rem 0 3rem #000;
   transition: 0.4s ease-out;
@@ -192,24 +194,31 @@ button:active {
 }
 
 .card:not(:first-child) {
-  margin-left: -20px;
+  margin-left: -40px;
 }
 
 .card:hover {
   transform: translateY(-20px);
   transition: 0.4s ease-out;
+  cursor: pointer;
 }
 
 .card:hover ~ .card {
   position: relative;
   left: 25px;
   transition: 0.4s ease-out;
+  opacity: 0.9;
 }
 
 .movie-title {
   color: white;
-  font-weight: 300;
   position: absolute;
-  left: 20px;
-  top: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.movie-title:hover {
+  cursor: pointer;
 }

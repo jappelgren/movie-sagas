@@ -1,7 +1,9 @@
+import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 
 export default function MovieItem({ movie }) {
+    const [showTitle, setTitleShow] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
     const handleClick = () => {
@@ -11,8 +13,22 @@ export default function MovieItem({ movie }) {
     }
     return (
         <div className="card" key={`A${movie.id}`}>
-            <h3 className="movie-title">{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title} onClick={handleClick} />
+            {showTitle && (
+                <h3
+                    onMouseLeave={() => setTitleShow(false)}
+                    onMouseEnter={() => setTitleShow(true)}
+                    onClick={handleClick}
+                    className="movie-title"
+                >{movie.title}
+                </h3>
+            )}
+            <img
+                onMouseLeave={() => setTitleShow(false)}
+                onMouseEnter={() => setTitleShow(true)}
+                src={movie.poster}
+                alt={movie.title}
+                onClick={handleClick} />
+
         </div>
     )
 }
