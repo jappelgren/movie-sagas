@@ -15,6 +15,8 @@ export default function AddMovie() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        // console.log('it was me all along', genresToAdd)
+        dispatch({ type: 'ADD_NEW_MOVIE', payload: newMovie })
         console.log(newMovie)
         setNewMovie({ title: '', poster: '', description: '', genre: [] })
     }
@@ -39,7 +41,7 @@ export default function AddMovie() {
             <textarea required name="description" value={newMovie.description} onChange={handleChange} />
             <div className="genre-container">
                 {genres?.map((genre) => (
-                    <GenreItem key={`g${genre.id}`} genre={genre} />
+                    <GenreItem key={`g${genre.id}`} genre={genre} setNewMovie={setNewMovie} newMovie={newMovie} />
                 ))}
             </div>
             <button onClick={handleClick}>Cancel</button>
