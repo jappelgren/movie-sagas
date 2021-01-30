@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { Chip, Paper } from '@material-ui/core'
 import { useDispatch, useSelector } from "react-redux"
-import { makeStyles } from '@material-ui/core/styles';
-import { select } from "redux-saga/effects";
 import GenreItem from "../GenreItem/GenreItem";
+import React from 'react'
 
 export default function AddMovie() {
     const [newMovie, setNewMovie] = useState({ title: '', poster: '', description: '', genre: [] })
+    const [randomIndex, setRandomIndex] = useState(0)
 
     const history = useHistory()
     const genres = useSelector(state => state?.genres)
     const dispatch = useDispatch()
 
+    const backgroundFileNames = ['btk.jpg', 'td.jpeg', 'btk.jpg', 'td.jpeg']
+
+    const randomBackground = () => {
+        setRandomIndex(Math.floor(Math.random() * ((backgroundFileNames.length) - 0) + 0))
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        // console.log('it was me all along', genresToAdd)
         dispatch({ type: 'ADD_NEW_MOVIE', payload: newMovie })
         console.log(newMovie)
         setNewMovie({ title: '', poster: '', description: '', genre: [] })
@@ -32,21 +36,45 @@ export default function AddMovie() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' })
+        randomBackground()
     }, [])
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input required name="title" type="text" value={newMovie.title} onChange={handleChange} />
-            <input required name="poster" type="text" value={newMovie.poster} onChange={handleChange} />
-            <textarea required name="description" value={newMovie.description} onChange={handleChange} />
-            <div className="genre-container">
-                {genres?.map((genre) => (
-                    <GenreItem key={`g${genre.id}`} genre={genre} setNewMovie={setNewMovie} newMovie={newMovie} />
-                ))}
+        <div
+            className="form-card-container"
+            style={{
+                backgroundImage: `url(images/random-bkg/${backgroundFileNames[randomIndex]})`,
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
+            <div className="form-card">
+                <form className="add-form" onSubmit={handleSubmit}>
+                    <div className="title-input-container">
+                        <div className="input-label">
+                            TITLE
+                        </div>
+                        <input required name="title" type="text" value={newMovie.title} onChange={handleChange} />
+                    </div>
+                    <div className="title-input-container">
+                        <div className="input-label">POSTER URL</div>
+                        <input required name="poster" type="text" value={newMovie.poster} onChange={handleChange} />
+                    </div>
+                    <div className="title-textarea-container">
+                        <div className="text-area-label">MOVIE DESCRIPTION</div>
+                        <textarea rows="5" cols="33" required name="description" value={newMovie.description} onChange={handleChange} />
+
+                    </div>
+                    <div className="genre-container">
+                        {genres?.map((genre) => (
+                            <GenreItem key={`g${genre.id}`} genre={genre} setNewMovie={setNewMovie} newMovie={newMovie} />
+                        ))}
+                    </div>
+                    <button onClick={handleClick}>Cancel</button>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-            <button onClick={handleClick}>Cancel</button>
-            <button type="submit">Submit</button>
-        </form>
+        </div>
     )
 }

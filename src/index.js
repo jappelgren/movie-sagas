@@ -56,6 +56,7 @@ function* addMovie(action) {
     try {
         console.log('it was me all along', action.payload)
         yield axios.post('/api/movie', action.payload)
+        yield put({ type: 'RESET_GENRES' })
     } catch (err) {
         console.log(err)
     }
@@ -99,6 +100,8 @@ const genresArray = (state = [], action) => {
             return [...state, action.payload]
         case 'REMOVE_GENRE_FROM_NEW_MOVIE':
             return state.filter((id) => id !== action.payload)
+        case 'RESET_GENRES':
+            return []
         default:
             return state
     }
