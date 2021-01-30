@@ -170,3 +170,46 @@ button:active {
   transform: scale(0.9);
   transition: 0.1s ease-in-out;
 }
+
+.card-container {
+  position: absolute;
+  height: 500px;
+  width: 100vw;
+  display: flex;
+  overflow: scroll;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  height: 280px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+  margin-left: -20px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+  position: relative;
+  left: 25px;
+  transition: 0.4s ease-out;
+}
+
+.movie-title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}

@@ -13,8 +13,7 @@ function MovieList() {
 
   return (
     <main>
-      <h1>MovieList</h1>
-      <section className="movies">
+      <section className="movies card-container">
         {movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
