@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id
   const query = `
-    SELECT "movies".title, "movies".description, "movies".poster, ARRAY_AGG("genres".name) FROM movies
+    SELECT "movies".title, "movies".id, "movies".description, "movies".poster, ARRAY_AGG("genres".name) FROM movies
     JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
     JOIN "genres" ON "genres".id = "movies_genres".genre_id
     WHERE movies."id" = $1

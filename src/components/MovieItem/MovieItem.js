@@ -10,10 +10,9 @@ export default function MovieItem({ movie }) {
         history.push('/details')
     }
     return (
-        <div >
+        <div key={`A${movie.id}`}>
             <h3>{movie.title}</h3>
             <img src={movie.poster} alt={movie.title} onClick={handleClick} />
-            
         </div>
     )
 }
