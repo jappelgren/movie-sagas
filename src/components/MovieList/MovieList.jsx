@@ -12,7 +12,14 @@ function MovieList() {
 
   return (
     <main>
-      <section className="movies card-container">
+      <section
+        className="movies card-container"
+        style={{
+          backgroundImage: `url(images/papyrus-dark.png)`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'repeat',
+        }}
+      >
         {movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
         ))}

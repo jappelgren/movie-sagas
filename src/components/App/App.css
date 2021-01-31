@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #3f4859;
+  background-color: #1a1e24;
 }
 
 header {
@@ -179,7 +179,6 @@ button:active {
   overflow: scroll;
   overflow-y: hidden;
   align-items: center;
-  background-color: #3f4859;
 }
 
 .card {
@@ -207,7 +206,7 @@ button:active {
   position: relative;
   left: 25px;
   transition: 0.4s ease-out;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 .movie-title {
@@ -240,7 +239,7 @@ a:hover svg {
   height: 85vh;
   margin: 0.5rem 3rem;
   padding: 0 2rem;
-  background-color: #27406d;
+  background-color: rgba(40, 45, 56, 0.3);
   border-radius: 20px;
 }
 
@@ -268,4 +267,5 @@ a:hover svg {
   justify-content: center;
   text-align: justify;
   height: 100%;
+  color: #9fb0bf;
 }

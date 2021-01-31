@@ -9,7 +9,14 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(images/papyrus-dark.png)`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat',
+      }}
+    >
       <Router>
         <Header />
         <Route path="/" exact>

@@ -12,7 +12,7 @@ export default function AddMovie() {
     const genres = useSelector(state => state?.genres)
     const dispatch = useDispatch()
 
-    const backgroundFileNames = ['btk.jpg', 'td.jpeg', 'parasite.png', 'sm.jpg', 'zatoichi.jpeg']
+    const backgroundFileNames = ['btk.jpg', 'td.jpeg', 'parasite.png', 'fitzcarraldo.jpg', 'zatoichi.jpeg']
 
     const randomBackground = () => {
         setRandomIndex(Math.floor(Math.random() * ((backgroundFileNames.length) - 0) + 0))
