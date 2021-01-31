@@ -8,18 +8,24 @@ export default function MovieDetails() {
         history.push('/')
     }
     return (
-        <div>
-            <h1>{movieObj?.title}</h1>
-            <img src={movieObj?.poster} />
-            <div className="genre-container" >
-                {movieObj?.array_agg?.map((genre) => (
-
-                    <div key={genre} className="genre-chip-display">{genre}</div>
-
-                ))}
+        <div className="details-container">
+            <div className="image-title-container">
+                <h1>{movieObj?.title}</h1>
+                <img src={movieObj?.poster} />
+                <div className="genre-container" >
+                    {movieObj?.array_agg?.map((genre) => (
+                        <div key={genre} className="genre-chip-display">{genre}</div>
+                    ))}
+                </div>
             </div>
-            <p>{movieObj?.description}</p>
-            <button onClick={handleClick}>Back to List</button>
+            <div className="description-container">
+                <div className="description-text">
+                    <p>{movieObj?.description}</p>
+                </div>
+                <div className="back-btn">
+                    <button onClick={handleClick}>Back to List</button>
+                </div>
+            </div>
         </div>
     )
 }

@@ -222,3 +222,50 @@ button:active {
 .movie-title:hover {
   cursor: pointer;
 }
+
+svg {
+  fill: #9fb0bf;
+  margin: 0 0 0 0.5rem;
+}
+
+a:hover svg {
+  fill: #bf2121;
+  transition: 0.5s ease-in-out;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  margin: 0.5rem 3rem;
+  padding: 0 2rem;
+  background-color: #27406d;
+  border-radius: 20px;
+}
+
+.details-container img {
+  height: 600px;
+}
+
+.details-container h1 {
+  color: #9fb0bf;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.description-container {
+  width: 980px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.description-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  height: 100%;
+}
