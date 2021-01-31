@@ -27,6 +27,10 @@ header {
   height: 75px;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: #9fb0bf;

@@ -1,12 +1,25 @@
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory, Redirect } from "react-router-dom"
 
 export default function MovieDetails() {
     const movieObj = useSelector(state => state?.details)
+    const dispatch = useDispatch()
     const history = useHistory()
     const handleClick = () => {
         history.push('/')
     }
+
+    useEffect(() => {
+        const movieDetails = localStorage.getItem("movie-object");
+        if (movieDetails) {
+            dispatch({ type: 'SET_DETAILS', payload: JSON.parse(movieDetails) })
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("movie-object", JSON.stringify(movieObj))
+    })
     return (
         <div className="details-container">
             <div className="image-title-container">

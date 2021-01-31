@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Header() {
+    const history = useHistory()
     return (
         <header>
-            <img className="logo" src="images/logo-rounded.png" alt="" />
+            <img className="logo" src="images/logo-rounded.png" alt="Logo for the SAGA movie database" onClick={() => history.push('/')} />
             <nav>
                 <Link to="/add">ADD A MOVIE
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
