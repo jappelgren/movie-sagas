@@ -6,6 +6,9 @@ export default function MovieItem({ movie }) {
     const [showTitle, setTitleShow] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
+
+    //handleClick directs user to details page and makes sure that page has the details
+    // of the movie that was clicked.
     const handleClick = () => {
         console.log(movie.id)
         dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
@@ -15,6 +18,9 @@ export default function MovieItem({ movie }) {
         <div className="card" key={`A${movie.id}`}>
             {showTitle && (
                 <h3
+                // onMouseLeave and onMouseEnter are used for conditional rendering
+                // mouse over a movie poster and it will display the title on top of it
+                // move out and it will disappear
                     onMouseLeave={() => setTitleShow(false)}
                     onMouseEnter={() => setTitleShow(true)}
                     onClick={handleClick}

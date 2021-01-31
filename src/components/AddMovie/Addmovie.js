@@ -44,6 +44,8 @@ export default function AddMovie() {
 
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' })
+        //added randomBackground in use effect so the background doesn't change every time a 
+        //keystroke occurs in an input.
         randomBackground()
     }, [])
 

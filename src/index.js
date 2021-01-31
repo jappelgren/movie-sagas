@@ -32,6 +32,7 @@ function* fetchAllMovies() {
 
 }
 
+//get selected movie details
 function* fetchMovieDetails(action) {
     try {
         const movieDeets = yield axios.get(`/api/movie/${action.payload}`)
@@ -42,6 +43,7 @@ function* fetchMovieDetails(action) {
     }
 }
 
+// get all genres from database
 function* fetchGenres() {
     try {
         const genres = yield axios.get('/api/genre')
@@ -52,6 +54,7 @@ function* fetchGenres() {
     }
 }
 
+//adds movie to the database
 function* addMovie(action) {
     try {
         console.log('it was me all along', action.payload)
@@ -94,6 +97,8 @@ const details = (state = {}, action) => {
     }
 }
 
+//sets an array of selected genres from the add movie page
+//this array will be used when the movie is submitted.
 const genresArray = (state = [], action) => {
     switch (action.type) {
         case 'ADD_GENRE_TO_NEW_MOVIE':

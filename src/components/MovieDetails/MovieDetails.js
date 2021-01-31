@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, Redirect } from "react-router-dom"
 
 export default function MovieDetails() {
+
+    //movieObj is an object... with all the selected movies... data.
+    //Optional chaining is used to make sure the object has the data it needs before th page
+    //tries to render elements based off of that data.
     const movieObj = useSelector(state => state?.details)
     const dispatch = useDispatch()
     const history = useHistory()
@@ -10,6 +14,9 @@ export default function MovieDetails() {
         history.push('/')
     }
 
+    //These two use effect statements store the data in localStorage on load, and
+    // then recall that data on refresh if it exists.  This allows the user to refresh
+    // and not be greeted with a blank page.
     useEffect(() => {
         const movieDetails = localStorage.getItem("movie-object");
         if (movieDetails) {
