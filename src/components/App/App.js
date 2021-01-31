@@ -6,12 +6,11 @@ import AddMovie from '../AddMovie/Addmovie'
 import Header from '../Header/Header';
 
 function App() {
-
-
   return (
     <div
       className="App"
       style={{
+        //sets background of movieList page.
         backgroundImage: `url(images/papyrus-dark.png)`,
         backgroundPosition: 'center',
         backgroundRepeat: 'repeat',
